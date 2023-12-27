@@ -15,8 +15,8 @@ class MainWindow(QMainWindow):
         """ Основной макет """
         
         self.load_button()
-        self.previous_button()
-        self.next_button()
+        # self.previous_button()
+        # self.next_button()
 
     def load_button(self):
         button = QPushButton("Загрузить", self)
@@ -37,7 +37,7 @@ class MainWindow(QMainWindow):
         self.document.load(file_name)
 
         view = QPdfView(None)
-        view.setPageMode(QPdfView.PageMode.SinglePage)  # Просмотр всего документа
+        view.setPageMode(QPdfView.PageMode.MultiPage)
         view.setDocument(self.document)
         view.setZoomMode(QPdfView.ZoomMode.FitInView)
         view.setFixedSize(870, 800)
@@ -49,22 +49,22 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(widget)
 
-    def previous_button(self):
-        button = QPushButton("<", self)
-        button.setFixedSize(60, 30)
-        button.move(810, 10)
-        self.layout.addWidget(button)
-        button.clicked.connect(self.previous_page)
-
-    def previous_page(self):
-        pass
-
-    def next_button(self):
-        button = QPushButton(">", self)
-        button.setFixedSize(60, 30)
-        button.move(880, 10)
-        self.layout.addWidget(button)
-        button.clicked.connect(self.previous_page)
-
-    def next_page(self):
-        pass
+    # def previous_button(self):
+    #     button = QPushButton("<", self)
+    #     button.setFixedSize(60, 30)
+    #     button.move(810, 10)
+    #     self.layout.addWidget(button)
+    #     button.clicked.connect(self.previous_page)
+    #
+    # def previous_page(self):
+    #     pass
+    #
+    # def next_button(self):
+    #     button = QPushButton(">", self)
+    #     button.setFixedSize(60, 30)
+    #     button.move(880, 10)
+    #     self.layout.addWidget(button)
+    #     button.clicked.connect(self.previous_page)
+    #
+    # def next_page(self):
+    #     pass
